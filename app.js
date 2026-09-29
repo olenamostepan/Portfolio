@@ -9,6 +9,7 @@
     year: { ua: "Рік", en: "Year" },
     role: { ua: "Роль", en: "Role" },
     services: { ua: "Що зроблено", en: "Services" },
+    link: { ua: "Посилання", en: "Link" },
     prev: { ua: "← Попередній", en: "← Previous" },
     next: { ua: "Наступний →", en: "Next →" },
     all: { ua: "Усі роботи", en: "All work" },
@@ -18,6 +19,8 @@
     skills: { ua: "Навички", en: "Skills" },
     tools: { ua: "Інструменти", en: "Tools" },
     interests: { ua: "Інтереси", en: "Interests" },
+    education: { ua: "Освіта", en: "Education" },
+    languages: { ua: "Мови", en: "Languages" },
     cv: { ua: "Резюме", en: "CV" },
     cvDl: { ua: "Завантажити CV (PDF)", en: "Download CV (PDF)" },
     email: { ua: "Пошта", en: "Email" },
@@ -155,6 +158,7 @@
               ${p.year ? `<div><dt class="mono">${t(UI.year)}</dt><dd>${esc(p.year)}</dd></div>` : ""}
               <div><dt class="mono">${t(UI.role)}</dt><dd>${esc(t(p.role))}</dd></div>
               <div class="svc"><dt class="mono">${t(UI.services)}</dt><dd><ul class="tags">${services.map((s) => `<li>${esc(s)}</li>`).join("")}</ul></dd></div>
+              ${p.link ? `<div class="lnk"><dt class="mono">${t(UI.link)}</dt><dd><a href="${esc(p.link.href)}" target="_blank" rel="noopener">${esc(t(p.link.label))} ↗</a></dd></div>` : ""}
             </dl>
           </div>
           <figure class="case-hero">${media(p.hero, 0, 'loading="eager"')}</figure>
@@ -175,7 +179,7 @@
     const half = Math.ceil(cols.length / 2);
     return `
     <main class="page about">
-      <div class="about-grid">
+      <div class="about-grid${A.portrait ? "" : " no-portrait"}">
         <div>
           <div class="about-label">${t(UI.about)}</div>
           <p class="statement">${esc(t(A.statement))}</p>
@@ -184,20 +188,22 @@
             <div>${cols.slice(half).map((c) => `<p>${esc(c)}</p>`).join("")}</div>
           </div>
         </div>
-        <div class="portrait">${A.portrait ? `<img src="${esc(A.portrait)}" alt="${esc(t(S.name))}">` : `<div class="ph" style="height:100%">${t(UI.portrait)}</div>`}</div>
+        ${A.portrait ? `<div class="portrait"><img src="${esc(A.portrait)}" alt="${esc(t(S.name))}"></div>` : ""}
       </div>
 
       <section class="rows">
         <div class="row"><h2>${t(UI.clients)}</h2><ul class="clients">${A.clients.map((c) => `<li>${esc(t(c))}</li>`).join("")}</ul></div>
         <div class="row"><h2>${t(UI.experience)}</h2><ul class="exp">${A.experience.map((e) => `<li><span class="yrs">${esc(e.years)}</span><span>${esc(t(e.role))}</span><span class="muted">${esc(t(e.org))}</span></li>`).join("")}</ul></div>
+        ${A.education ? `<div class="row"><h2>${t(UI.education)}</h2><ul class="exp">${A.education.map((e) => `<li><span class="yrs">${esc(e.years)}</span><span>${esc(t(e.role))}</span><span class="muted">${esc(t(e.org))}</span></li>`).join("")}</ul></div>` : ""}
         <div class="row"><h2>${t(UI.skills)}</h2><ul class="inline-list">${(t(A.skills) || []).map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>
         <div class="row"><h2>${t(UI.tools)}</h2><ul class="inline-list">${A.tools.map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>
-        <div class="row"><h2>${t(UI.interests)}</h2><ul class="inline-list">${(t(A.interests) || []).map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>
+        ${A.languages ? `<div class="row"><h2>${t(UI.languages)}</h2><ul class="inline-list">${(t(A.languages) || []).map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>` : ""}
+        ${A.interests ? `<div class="row"><h2>${t(UI.interests)}</h2><ul class="inline-list">${(t(A.interests) || []).map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>` : ""}
         <div class="row"><h2>${t(UI.cv)}</h2><div><a class="cvlink slash" href="${esc(A.cv)}" target="_blank" rel="noopener">${t(UI.cvDl)}</a></div></div>
       </section>
 
       <dl class="foot">
-        <dt>${t(UI.email)}</dt><dd>${esc(A.email)}</dd>
+        <dt>${t(UI.email)}</dt><dd><a href="mailto:${esc(A.email)}">${esc(A.email)}</a></dd>
         <dt>${t(UI.social)}</dt><dd class="links">${A.links.map((l) => `<a class="slash" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("")}</dd>
       </dl>
     </main>`;
