@@ -1,0 +1,19 @@
+{
+  "name": "olena-mostepan-portfolio",
+  "version": "1.0.0",
+  "description": "Graphic design portfolio: identities, publications, infographics and social media systems for the civic sector.",
+  "scripts": {
+    "dev": "npx serve .",
+    "build": "echo 'No build step required for static HTML site'",
+    "lint": "echo 'No linter configured for static HTML site'"
+  },
+  "keywords": [
+    "portfolio",
+    "design"
+  ],
+  "author": "Olena Mostepan",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
