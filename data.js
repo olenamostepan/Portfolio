@@ -279,6 +279,36 @@ window.PROJECTS = [
       { src: "img/jsr-pres3.jpg", span: 12 },
       { src: "img/jsr-pres4.jpg", span: 12 }
     ]
+  },
+  {
+    slug: "various-materials",
+    compact: true,
+    client: { ua: "Різні організації", en: "Various organisations" },
+    type: { ua: "Видання та інформаційні матеріали", en: "Publications and information materials" },
+    title: { ua: "Звіти, посібники та інформаційні матеріали.", en: "Reports, manuals and information materials." },
+    subtitle: { ua: "Добірка робіт", en: "Selected work" },
+    lead: {
+      ua: "Добірка матеріалів для громадських організацій і міжнародних програм: аналітичні звіти й форсайт-дослідження, навчально-практичні посібники, інформаційні листівки, one-pager’и з результатами проєктів і дописи для соцмереж. Я верстаю великі тексти з інфографікою, таблицями та схемами так, щоб їх було легко читати, і працюю у фірмових стилях різних донорів і програм – від Фонду Східна Європа та Polaris до Strategic Foresight of Ukraine.",
+      en: "A selection of materials for civil society organisations and international programmes: analytical reports and foresight studies, training manuals, information leaflets, project results one-pagers and social media posts. I lay out long texts with infographics, tables and diagrams so they are easy to read, and work within the brand styles of different donors and programmes – from East Europe Foundation and Polaris to Strategic Foresight of Ukraine."
+    },
+    year: "",
+    role: { ua: "Дизайн і верстка", en: "Design and layout" },
+    services: { ua: ["Аналітичні звіти", "Посібники", "Інфографіка", "Листівки", "One-pager’и", "Соцмережі"], en: ["Analytical reports", "Manuals", "Infographics", "Leaflets", "One-pagers", "Social media"] },
+    card: "img/var-2.jpg",
+    hero: { src: "img/var-2.jpg", ratio: "2794/1784" },
+    index: ["img/var-2.jpg"],
+    gallery: [
+      { src: "img/var-3.jpg", span: 12 },
+      { src: "img/var-1.jpg", span: 12 },
+      { src: "img/var-4.jpg", span: 12 },
+      { src: "img/var-5.jpg", span: 12 },
+      { src: "img/var-6.jpg", span: 12 },
+      { src: "img/var-7.jpg", span: 12 },
+      { src: "img/var-8.jpg", span: 12 },
+      { src: "img/var-9.jpg", span: 12 },
+      { src: "img/var-10.jpg", span: 12 },
+      { src: "img/var-11.jpg", span: 12 }
+    ]
   }
 ];
 
