@@ -15,8 +15,10 @@
 </head>
 <body>
 <div id="app"></div>
-<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
-<script defer src="/_vercel/insights/script.js"></script>
+<script type="module">
+  import { inject } from 'https://cdn.jsdelivr.net/npm/@vercel/analytics@2/dist/index.mjs';
+  inject();
+</script>
 <script src="data.js"></script>
 <script src="app.js"></script>
 </body>
